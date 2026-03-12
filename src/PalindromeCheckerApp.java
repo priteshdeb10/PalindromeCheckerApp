@@ -1,46 +1,35 @@
 public class PalindromeCheckerApp {
-    public static void main(String[] args){
-        Scanner scanner = new Scanner(System.in);
-
-        System.out.print("Enter any word: ");
-
-        String input = scanner.nextLine();
 
 
-        String word = input.toLowerCase();
+        public static void main(String[] args) {
 
 
-        Deque<Character> deque = new ArrayDeque<>();
+            String input = "level";
 
 
-        for (char c : word.toCharArray()) {
-            deque.addLast(c);
-        }
+            LinkedList<Character> list = new LinkedList<>();
 
 
-        boolean isPalindrome = true;
-
-
-        while (deque.size() > 1) {
-
-            char first = deque.removeFirst();
-            char last = deque.removeLast();
-
-            if (first != last) {
-                isPalindrome = false;
-                break;
+            for (char c : input.toCharArray()) {
+                list.add(c);
             }
+
+            boolean isPalindrome = true;
+
+
+            while (list.size() > 1) {
+
+                char first = list.removeFirst();
+                char last = list.removeLast();
+
+                if (first != last) {
+                    isPalindrome = false;
+                    break;
+                }
+            }
+
+
+            System.out.println("Input : " + input);
+            System.out.println("Is Palindrome : " + isPalindrome);
         }
-
-
-        if (isPalindrome) {
-            System.out.println("\"" + input + "\" is a palindrome.");
-        } else {
-            System.out.println("\"" + input + "\" is NOT a palindrome.");
-        }
-
-        scanner.close();
     }
-}
-
-
